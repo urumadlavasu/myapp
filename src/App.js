@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import React, {useState} from 'react'
 import './App.css';
-
+import tt from './data';
 function App() {
+  const[t,setT]= useState(tt)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+       <h1>Our Tours</h1>
+     {
+      t.map((a,i)=>{
+       return (
+        <div className='card'>
+         
+          <img style={{width:"600px"}} src={a.img}/>
+          <div>
+          <h2>{a.sub}</h2>
+          <h3>{a.price}</h3>
+          </div>
+          <h4>{a.description}</h4>
+          <button>Not Interested</button>
+        </div>
+        
+       )
+            
+      })
+     }
     </div>
   );
 }
